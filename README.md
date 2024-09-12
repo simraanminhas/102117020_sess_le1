@@ -32,15 +32,29 @@ The training loop involved iterating through the dataset, applying transformatio
 ## Challenges
 Unfortunately, due to the limitations of the available hardware, specifically the lack of access to a GPU, the fine-tuning process was not fully completed. The model's training was started, but the process was too slow to achieve meaningful results within the available time. Consequently, the accuracy and loss of the model were not optimized, and the model could not be fully evaluated on the test set.
 
-## Next Steps
-To complete this process, the following steps are recommended:
+## Recording Audio Samples:
+Recorded 30 audio samples, each containing 35 distinct words. Used a laptop voice recorder for capturing the audio.
 
-Access to GPU: Running the training and fine-tuning process on a GPU to significantly speed up convergence and allow for completion of the fine-tuning.
-Model Evaluation: Once training is completed, evaluate the model's accuracy, loss, and performance on the test set.
-Further Optimization: Fine-tune hyperparameters such as learning rate and batch size for better performance and potentially introduce early stopping to prevent overfitting.
+## Dataset Preparation:
+Compiled the recorded audio samples adding them to google drive. Mounted the drive to the working environment. Extracted the zip file to access the individual audio files for processing.
 
-This project successfully prepared a custom dataset of 30 recordings for each of the 35 speech commands and set up a CNN classifier for fine-tuning. However, due to hardware constraints, the fine
+## Data Extraction:
+Organized and processed the audio files for model training. Converted audio files to mono if necessary and resampled to 8000 Hz.
 
+## Custom Dataset Class
+Created a custom dataset class MySpeechCommands to load and preprocess the audio data. Implemented methods to convert stereo audio to mono, resample audio, and map labels to indices
+
+## CNN Model Classifier Development:
+Developed and configured a Convolutional Neural Network (CNN) model named M5 for keyword spotting. The model includes several 1D convolutional layers, batch normalization, pooling layers, and a fully connected layer for classification.
+
+## Dataset Splitting:
+Prepared the dataset for training, validation, and testing. Split the dataset into training, validation, and testing subsets using custom file lists.
+
+## Fine-Tuning Process:
+Fine-tuned the CNN model using the prepared dataset. Achieved a validation accuracy of 0.8190 after 10 epochs of training.
+
+## Evaluation:
+Evaluated the model on the test set to assess its performance on unseen data. The model’s performance metrics include an accuracy of 0.0286 on the test set (initial run), indicating further tuning and debugging needed.
 -----------------------------
 
 
